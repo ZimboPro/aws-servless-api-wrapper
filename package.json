@@ -1,0 +1,22 @@
+{
+  "private": true,
+  "scripts": {
+    "docker:up": "docker-compose up -d",
+    "docker:up:logs": "yarn docker:up && docker-compose logs -f",
+    "docker:down": "docker-compose down --timeout 30",
+    "docker:destroy": "yarn docker:down --volumes --remove-orphans",
+    "deploy:local": "serverless deploy --stage local",
+    "deploy:dev": "serverless deploy --stage dev",
+    "sls:destroy:local": "serverless remove --stage local",
+    "sls:destroy:dev": "serverless remove --stage dev",
+    "postinstall": "patch-package"
+  },
+  "devDependencies": {
+    "@atao60/fse-cli": "^0.1.7",
+    "patch-package": "^6.5.0",
+    "postinstall-postinstall": "^2.1.0",
+    "serverless": "3.19.0",
+    "serverless-localstack": "^1.0.1",
+    "sls-rust": "0.2.1"
+  }
+}
